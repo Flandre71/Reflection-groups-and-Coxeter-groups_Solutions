@@ -1,0 +1,244 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+
+\newtheoremstyle{breakstyle}
+    {5pt}
+    {10pt}
+    % {\normalfont}
+    {\itshape}
+    {0pt}
+    {\bfseries}
+    {\newline\indent}
+    {0pt}
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ \textbf{[#3]}}}
+\theoremstyle{breakstyle}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{remark}{Remark}[section]
+
+\newenvironment{solution}
+  {\begin{proof}[Solution.]\renewcommand{\qedsymbol}{}}
+  {\end{proof}}
+
+% \let\ker\relax
+% \DeclareMathOperator{\ker}{Ker}
+\let\det\relax
+\DeclareMathOperator{\det}{Det}
+
+\title{Chapter 1: Finite reflection groups}
+\author{Flandre}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Reflections}
+
+\begin{exercise}[Trivial]
+The reflections form a single conjugacy class in $\mathcal{D}_m$ when $m$ is
+odd, but form two classes when $m$ is even.
+\end{exercise}
+
+\begin{exercise}[Trivial]
+Regarding $S_{n}$ in this way as a subgroup of $\mathrm{O}(n, \mathbf{R})$ ,
+prove that the transpositions are the sole reflections belonging to $S_{n}$ .
+\end{exercise}
+
+\setcounter{section}{2}
+\section{Positive and simple systems}
+
+\begin{exercise}[Trivial]
+If $\Phi$ has rank 2, prove that $W$ is a dihedral group. [This will be easier
+to do after Theorem 1.5.]
+\end{exercise}
+
+\begin{exercise}
+Find simple systems for the various groups described in 1.1, taking for $\Phi$ in each case a convenient set of vectors (not necessarily unit vectors).
+
+\begin{solution}
+    \begin{enumerate}[label=({\roman*})]
+        \item $\left( I_2\left( m \right) ,m\ge 3 \right) $:
+
+            Take
+            $$
+            \Phi := \left\{ \pm \alpha_j \mid 0 \le j \le m-1,\alpha_j :=\left( \cos j\theta, \sin j\theta \right)  \right\} 
+            $$
+            and we have simple system
+            $$
+            \Delta := \{\alpha_0, \alpha_{m-1}\}
+            $$
+        \item $\left( A_{n-1},n\ge 2 \right) $:
+
+            Take
+            $$
+            \Phi:=\left\{ \varepsilon_{i}-\varepsilon_{j}\mid i\neq j \right\} 
+            $$
+            and we have simple system
+            $$
+            \Delta:=\left\{ \varepsilon_{i}-\varepsilon_{i+1}\mid i\in
+            [1,n-1]\cap \mathbb{Z} \right\} 
+            $$
+        \item $\left( B_{n},n\ge 2 \right) $:
+
+            Take
+            $$
+            \Phi:=\left\{ \pm \varepsilon_{i},\pm \left(
+            \varepsilon_{i}-\varepsilon_{j} \right) \mid 1\le i<j\le n \right\}
+            $$
+            and we have simple system
+            $$
+            \Delta:=\left\{
+            \varepsilon_1-\varepsilon_2,\varepsilon_2-\varepsilon_3,\ldots
+        ,\varepsilon_{n-1}-\varepsilon_{n},\varepsilon_{n} \right\} 
+            $$
+        \item $\left( D_{n},n\ge 4 \right) $:
+
+            Take
+            $$
+            \Phi:=\left\{ \pm \left( \varepsilon_{i}\pm \varepsilon_{j} \right)
+            \mid 1\le i<j\le n\right\} 
+            $$
+            and we have simple system
+            $$
+            \Delta:=\left\{
+            \varepsilon_1-\varepsilon_2,\varepsilon_2-\varepsilon_3,\ldots
+        \varepsilon_{n-1}-\varepsilon_{n},\varepsilon_{n-1}+\varepsilon_{n} \right\} 
+            $$
+    \end{enumerate}
+    All of them are easy to examine, and we're done.
+\end{solution}
+
+\end{exercise}
+
+\setcounter{section}{4}
+\section{Generation by simple reflections}
+
+\begin{exercise}[Trivial]
+Let $\Phi$ be a root system of rank $n$ consisting of unit vectors. If $\Psi
+\subset \Phi$ is a set of $n$ roots whose mutual angles agree with those between
+the roots in some simple system, then $\Psi$ must be a simple system.
+
+\begin{proof}
+    \emph{(Use \textbf{Corollary 1.5}.)}
+\end{proof}
+
+\end{exercise}
+
+\begin{exercise}[Skipped]
+Given a simple system $\Delta$ , no proper subset of the simple reflections can
+generate $W$ . [Otherwise find $\alpha \in \Delta$ for which $s_{\alpha}$ is not
+needed as a generator of $W$ . Consider $w \in W$ for which $w(-\alpha) \in
+\Delta$ .]
+\end{exercise}
+
+\begin{exercise}[Skipped]
+    If $\beta \in \Pi \backslash \Delta$ , prove that $\operatorname{ht}(\beta)
+    > 1$ .
+\end{exercise}
+
+\section{The length function}
+
+\begin{exercise}
+(a) If $w \in W$ , prove that $\det(w) = (-1)^{n(w)}$ . (b) If $w, w' \in W$ ,
+prove that $n(ww') \leq n(w) + n(w')$ and $n(ww') \equiv n(w) + n(w') \pmod{2}$
+.
+
+\begin{proof}
+    \begin{enumerate}[label=({\alph*})]
+        \item 
+            Because from \textbf{Lemma 1.6}, we know
+            $$
+            n(w)\equiv l(w)\pmod{2}
+            .$$
+            So $\det{w}:=\left( -1 \right) ^{l\left( w \right) }=\left( -1
+            \right) ^{n\left( w \right) }$.
+        \item 
+            \emph{(Again use \textbf{Lemma 1.6}, trivial.)}.
+    \end{enumerate}
+\end{proof}
+
+\end{exercise}
+
+\begin{exercise}[Skipped]
+Taking the simple reflections in $S_{n}$ to be the transpositions $(i, i + 1)$ ,
+show that the length of a permutation $\pi$ is the number of 'inversions': the
+number of pairs $i < j$ for which $\pi(i) > \pi(j)$.
+\end{exercise}
+
+\section{Deletion and Exchange Conditions}
+
+\begin{exercise}
+In the Exchange Condition, suppose $\ell(w)=r$ . Prove that the index i in the
+conclusion is uniquely determined.
+
+\begin{proof}
+    Suppose $\exists 1\le i<j\le r,\text{s.t. }$
+    $$
+    ws=s_1\ldots \hat{s_{i}}\ldots s_{r}=s_1\ldots \hat{s_{j}}\ldots s_{r}
+    .$$
+    From which we have
+    $$
+    \hat{s_{i}}s_{i+1}\ldots s_{j-1}s_{j}=s_{i}s_{i+1}\ldots s_{j-1}\hat{s_{j}}
+    ,$$
+    i.e.
+    $$
+    s_{i}\ldots s_{j}=s_{i+1}\ldots s_{j-1}
+    $$
+    and
+    $$
+    s=s_1\ldots \hat{s_{i}}\ldots \hat{s_{j}}\ldots s_{r}
+    $$
+    contradicting the minimality of $r$.
+\end{proof}
+
+\end{exercise}
+
+\begin{exercise}[Skipped]
+Formulate a 'left-handed' version of the Exchange Condition, under the
+hypothesis $\ell(sw) < \ell(w)$.
+
+\begin{solution}
+Let $w = s_1 \cdots s_r$ (not necessarily reduced), where each $s_i$ is a simple
+reflection. If $\ell(sw) < \ell(w)$ for some simple reflection $s$, then there
+exists an index $i$ for which $sw = s_1 \cdots \hat{s}_i \cdots s_r$ (and thus
+$w = s s_1 \cdots \hat{s}_i \cdots s_r$, with a factor $s$ exchanged for a
+factor $s_i$). In particular, $w$ has a reduced expression beginning with $s$ if
+and only if $\ell(sw) < \ell(w)$.
+
+\emph{(I don't wanna prove it. Seemed to be trivial.)}
+\end{solution}
+
+\end{exercise}
+
+\section{Simple transitivity and the longest element}
+
+\begin{exercise}
+What is $w_{\circ}$ in the case of $S_{n}$, relative to the simple system
+$\varepsilon_{1} - \varepsilon_{2}, \ldots, \varepsilon_{n-1} - \varepsilon_{n}$
+?
+
+\begin{solution}
+    In $S_{n},\Pi=\left\{ s_{\varepsilon_{i}-\varepsilon_{j}}\mid i<j \right\}
+    $. To send $\Pi$ to $-\Pi$, the required $w_{0}$ is
+    $$
+    w_0=\binom{1\ 2\ \ldots \ n}{n\ n-1\ \ldots \ 1}
+    $$
+    And we know
+    $$
+    n(w_0)=\frac{n(n-1)}{2}
+    .$$
+\end{solution}
+
+\end{exercise}
+
+\begin{exercise}[Skipped]
+In any reduced expression for $w_{0}$, every simple reflection must occur at
+least once.
+\end{exercise}
+
+\end{document}
