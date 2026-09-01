@@ -241,4 +241,76 @@ In any reduced expression for $w_{0}$, every simple reflection must occur at
 least once.
 \end{exercise}
 
+\setcounter{section}{9}
+\section{Parabolic subgroups and minimal coset  representatives}
+
+\begin{exercise}[Skipped]
+Is there a result analogous to (c) describing minimal representatives of the
+double cosets $W_{I}wW_{J}(I,J\subset S)$?
+\end{exercise}
+
+\begin{exercise}[Skipped]
+When $W = S_{n}$ , prove that each parabolic subgroup of $W$ is isomorphic to a
+direct product of symmetric groups.
+\end{exercise}
+
+\begin{exercise}[Skipped]
+Given $s \neq s'$ in $S$ , set $v := ss'ss' \cdots (m$ factors, where $m$ is the
+order of $ss'$ in $W$ ), so also $v = s'ss's \cdots (m$ factors), and $v^2 = 1$
+. If $w \in W$ satisfies $\ell(ws) < \ell(w)$ and $\ell(ws') < \ell(w)$ , prove
+that $\ell(wv) = \ell(w) - m$ . [Consider $W_I$ , $I = \{s, s'\}$ . Since $w =
+(wv)v$ with $v \in W_I$ , it suffices to show that $wv \in W^I$ . Look at the
+action on the roots corresponding to $s, s'$.]
+\end{exercise}
+
+\section{Poincare polynomials}
+
+\begin{exercise}
+When $W = S_{3}$ , use the formula in the proposition to compute $W(t)$
+inductively, starting with the fact that $W(t) = 1 + t$ for a group of rank 1.
+Do the same for $W = \mathcal{D}_m$ in general.
+
+\begin{proof}
+    Notice from
+    $$
+    \sum_{I\subseteq S} \left( -1 \right) ^{I}\frac{W(t)}{W_{I}(t)}=t^{N}
+    $$
+    we get
+    $$
+    \sum_{I\subseteq S} \frac{(-1)^{I}}{W_{I}(t)}=\frac{t^{N}}{W(t)}
+    .$$
+    Breaking up left hand side, we obtian
+    $$
+    \frac{(-1)^{S}}{W(t)}+\sum_{I\subsetneq S}
+    \frac{(-1)^{I}}{W_{I}(t)}=\frac{t^{N}}{W(t)}
+    ,$$
+    i.e.
+    $$
+    \frac{t^{N}-(-1)^{S}}{W(t)}=\sum_{I\subsetneq S} \frac{(-1)^{I}}{W_{I}(t)}
+    $$
+    \emph{(Rest of the proof is pure repitive work, skipped.)}
+\end{proof}
+
+\begin{exercise}[Skipped]
+The identity just obtained permits an inductive calculation of $|W|$ when $|S|$
+is odd. Suppose for example that $|S| = 3$ , and that the dihedral subgroups
+$W_{I}$ are of respective orders 4, 6, 10. What is $|W|$?
+\end{exercise}
+
+\end{exercise}
+
+\section{Fundamental domains}
+
+\begin{exercise}
+Show how the theorem can be used to solve the Word Problem for W: given a
+product of simple reflections, decide whether or not it equals 1 in W.
+
+\begin{solution}
+    Pick out an element in the corresponding $C$ of the given $W$ and see if
+    it's fixed by such product of simple reflections: if so, then the product is
+    equal to $1$.
+\end{solution}
+
+\end{exercise}
+
 \end{document}
