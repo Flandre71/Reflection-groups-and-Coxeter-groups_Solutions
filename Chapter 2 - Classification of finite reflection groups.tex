@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+
+\newtheoremstyle{breakstyle}
+    {5pt}
+    {10pt}
+    % {\normalfont}
+    {\itshape}
+    {0pt}
+    {\bfseries}
+    {\newline\indent}
+    {0pt}
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ \textbf{[#3]}}}
+\theoremstyle{breakstyle}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{remark}{Remark}[section]
+
+\newenvironment{solution}
+  {\begin{proof}[Solution.]\renewcommand{\qedsymbol}{}}
+  {\end{proof}}
+
+% \let\ker\relax
+% \DeclareMathOperator{\ker}{Ker}
+\let\det\relax
+\DeclareMathOperator{\det}{Det}
+
+\title{Chapter 2 - Classification of finite reflection groups}
+\author{Flandre}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{1}
+\section{Irreducible components}
+
+\begin{exercise}[Skipped]
+Let $W$ be the dihedral group $\mathcal{D}_6$ of order 12, with standard Coxeter
+generators $S = \{s, s'\}$ . The Coxeter system $(W, S)$ is irreducible.
+However, $W$ has another set $S'$ of Coxeter generators leading to a Coxeter
+system which is not irreducible: $S' := \{s, (s's)^3, s(s's)^2\}$ .
+\end{exercise}
+
+\begin{remark}
+    This tells us that irreducibility is a property of the Coxeter system, i.e.
+    of the chosen set $S$, not of the abstract group $W$.
+\end{remark}
+
+\setcounter{section}{7}
+\section{Crystallographic groups}
+
+\begin{exercise}
+If $W$ satisfies the necessary condition in the proposition (and is essential),
+show how to modify the lengths of the roots in a simple system $\Delta$ so that
+the resulting $\mathbf{Z}$ -span is a lattice in $V$ stable under $W$ . [Use the
+fact that the Coxeter graph has no circuits.]
+
+\begin{solution}
+    For any two $\alpha_{i},\alpha_{j}\in \Delta$, we'll modify their length
+    so that $2\frac{\left( \alpha_{i},\alpha_{j} \right) }{\left(
+    \alpha_{i},\alpha_{i} \right) }\in \mathbb{Z}$, in which case
+    $$
+    s_{\alpha_{i}}\left( \alpha_{j} \right) =a_{j}-2\frac{\left(
+    \alpha_{i},\alpha_{j} \right) }{\left( \alpha_{i},\alpha_{i} \right)
+    }\alpha_{j}
+    $$
+    lies in the $\mathbb{Z}$-span of $\alpha_{i},\alpha_{j}$.
+
+    Notice
+    $$
+    2\frac{\left( \alpha_{i},\alpha_{j} \right) }{\left(
+    \alpha_{i},\alpha_{i} \right) }=\frac{\left| \alpha_{j} \right| }{\left|
+    \alpha_{i} \right| }\cdot 2\cos\left< \alpha_{i},\alpha_{j} \right> 
+    $$
+    while
+    $$
+    2\frac{\left( \alpha_{i},\alpha_{j} \right) }{\left(
+    \alpha_{j},\alpha_{j} \right) }=\frac{\left| \alpha_{i} \right| }{\left|
+    \alpha_{j} \right| }\cdot 2\cos\left< \alpha_{i},\alpha_{j} \right> 
+    $$
+    
+    And since $m\left( \alpha,\beta \right) \in \left\{ 2,3,4,6 \right\} $ since
+    $W$ is crystallographic,
+    $$
+    \cos\left< \alpha_{i},\alpha_{j} \right> =\cos{\frac{\pi}{m\left(
+    \alpha_{i},\alpha_{j} \right) }}\in \left\{ 0,\frac{1}{2},\frac{\sqrt{2}
+    }{2},\frac{\sqrt{3} }{2} \right\}\text{.   ($0$ is omitted as $\alpha_{i}\neq
+    \alpha_{j}$)}
+    $$
+    We can have $2\cos\left< \alpha_{i},\alpha_{j} \right>
+    =\sqrt{n_{ij}},n_{ij}\in \mathbb{Z} $. Now, we may let $\frac{\left| a_{i}
+    \right| }{\left| a_{j} \right| }=\sqrt{n_{ij}} $, and therefore
+    $$
+    2\frac{\left( \alpha_{i},\alpha_{j} \right) }{\left( \alpha_{i},\alpha_{i}
+    \right) }=\frac{1}{\sqrt{n_{ij}} }\sqrt{n_{ij}} =1\in \mathbb{Z}
+    $$
+    $$
+    2\frac{\left( \alpha_{j},\alpha_{i} \right) }{\left( \alpha_{j},\alpha_{j}
+    \right) }=\sqrt{n_{ij}} \sqrt{n_{ij}} =n_{ij}\in \mathbb{Z}
+    .$$
+
+    \emph{(Following from the hint)}
+
+    Now, we may pick out any $\alpha_{i}\in \Delta$ as the starting vertex,
+    unify it to lenght $1$, then scale all the vertices, denote one of them by
+    $\alpha_{j}$, in its neighbourhood to the length satisfying $\frac{\left|
+    \alpha_{i} \right| }{\left| \alpha_{j}\right| }=\sqrt{n_{ij}} $. Since
+    there's no loop in the corresponding Coxeter Graph, such process can go
+    through all the vertices in this finite Coxeter Graph without contradiction,
+    and the $\mathbb{Z}$-span was obtained.
+\end{solution}
+
+\end{exercise}
+
+\end{document}
