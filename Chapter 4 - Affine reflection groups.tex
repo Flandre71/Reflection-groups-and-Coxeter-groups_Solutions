@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+
+\newtheoremstyle{breakstyle}
+    {5pt}
+    {10pt}
+    % {\normalfont}
+    {\itshape}
+    {0pt}
+    {\bfseries}
+    {\newline\indent}
+    {0pt}
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ \textbf{[#3]}}}
+\theoremstyle{breakstyle}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{remark}{Remark}[section]
+
+\newenvironment{solution}
+  {\begin{proof}[Solution.]\renewcommand{\qedsymbol}{}}
+  {\end{proof}}
+
+% \let\ker\relax
+% \DeclareMathOperator{\ker}{Ker}
+\let\det\relax
+\DeclareMathOperator{\det}{Det}
+
+\title{Chapter 4 - Affine reflection groups}
+\author{Flandre}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{2}
+\section{Alcoves}
+
+\begin{exercise}[Trivial]
+An alcove $A$ consists of all $\lambda \in V$ satisfying strict inequalities
+$k_{\alpha} < (\lambda, \alpha) < k_{\alpha} + 1$ , where $\alpha$ runs over
+$\Phi^{+}$ and $k_{\alpha} \in \mathbf{Z}$ . Its \textbf{upper closure} consists
+of those $\lambda$ satisfying the inequalities obtained by replacing the second
+$<$ by $\leq$ in each case. Prove that each $\lambda \in V$ lies in the upper
+closure of a unique alcove.
+
+\begin{proof}
+    \emph{(Check the definition of those walls.)}
+\end{proof}
+
+\end{exercise}
+
+\end{document}
